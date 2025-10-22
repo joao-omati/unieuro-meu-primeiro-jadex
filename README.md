@@ -1,171 +1,301 @@
-1. Introdução
-1.1 Contextualização
+🎬 Detector de Vídeos IA vs Reais
 
-Com o avanço das tecnologias de IA generativa, tornou-se crucial desenvolver mecanismos para distinguir conteúdo autêntico de material sintetizado.
-Este projeto aborda esse desafio através de uma abordagem multiagente.
+🎯 Visão Geral
+Sistema inteligente desenvolvido em Java para classificação automática de vídeos, distinguindo entre conteúdo real (gravado com câmeras) e gerado por IA (sintético/artificial). Utiliza análise multi-fatorial e algoritmos baseados em pesquisas atuais sobre detecção de mídia sintética.
 
-1.2 Objetivos
+⚙️ Funcionamento do Sistema
+Arquitetura do Sistema
+text
+📦 Sistema Detector de Vídeos IA
+├── 🔍 Coordenador Principal (Main)
+├── 📊 Módulo de Análise Avançada
+├── 🎭 Serviço de Detecção IA
+├── 📁 Gerenciador de Arquivos
+└── 📈 Agregador de Resultados
+Fluxo de Processamento
+Entrada: Vídeos fornecidos via argumentos ou detectados automaticamente
 
-Desenvolver um detector automático de vídeos IA
+Pré-processamento: Análise de metadados e estrutura de arquivos
 
-Implementar arquitetura modular e escalável
+Análise Multi-fatorial: 4 camadas de verificação
 
-Fornecer análise probabilística confiável
+Classificação: Determinação Real vs IA com score de confiança
 
-Permitir fácil integração e extensão
+Saída: Resultados detalhados com indicadores específicos
 
-1.3 Justificativa
+🛠 Pré-requisitos
+Requisitos Mínimos do Sistema
+Java: Versão 21 ou superior
 
-A detecção automatizada é essencial para combater desinformação, proteger propriedade intelectual e garantir autenticidade digital.
+Maven: Versão 3.6 ou superior
 
-2. Fundamentação Teórica
-2.1 Sistemas Multiagentes
+Sistema Operacional: Windows, Linux ou macOS
 
-Arquitetura composta por entidades autônomas (agentes) que colaboram para resolver problemas complexos através de coordenação e especialização.
+Memória RAM: Mínimo 2GB (recomendado 4GB+)
 
-2.2 Framework Jadex
+Armazenamento: 500MB livres
 
-Plataforma Java para desenvolvimento de sistemas multiagentes, oferecendo infraestrutura para comunicação, gerenciamento de ciclo de vida e serviços.
+Verificação da Instalação
+bash
+# Verificar Java
+java -version
 
-2.3 Processamento de Vídeo
+# Verificar Maven
+mvn -version
 
-Utilização do OpenCV para análise computacional de frames, extração de características e detecção de padrões visuais.
+# Saída esperada:
+# Java version: 21+
+# Maven version: 3.6+
+📥 Instalação e Configuração
+1. Clone/Download do Projeto
+bash
+# Navegue para o diretório desejado
+cd /c/seu/diretorio
 
-3. Metodologia
-3.1 Arquitetura Proposta
+# Execute o script de criação (se disponível)
+./criar-projeto.sh
+2. Estrutura de Pastas Automática
+O sistema criará automaticamente:
 
-Sistema hierárquico com 4 agentes especializados:
+text
+projeto-ia-detector/
+├── videos/
+│   ├── real/          # Vídeos reais/originais
+│   ├── ia/            # Vídeos gerados por IA
+│   └── test/          # Vídeos para teste
+├── src/               # Código fonte
+├── results/           # Resultados das análises
+├── logs/              # Logs do sistema
+└── scripts/           # Scripts auxiliares
+3. Instalação de Dependências
+bash
+# Navegue para a pasta do projeto
+cd projeto-ia-detector
 
-CoordinatorAgent (Orientador)
-│
-├── FrameAnalyzerAgent (Análise Visual)
-├── MetadataAnalyzerAgent (Metadados)
-└── AudioAnalyzerAgent (Análise Sonora)
+# Instale dependências Maven
+mvn clean compile
 
-3.2 Tecnologias Utilizadas
-Categoria	Tecnologia
-Linguagem	Java 11
-Framework Multiagente	Jadex 3.0
-Processamento Visual	OpenCV 4.8
-Leitura de Metadados	Apache Tika 2.9
-Build e Gerenciamento	Maven 3.6+
-3.3 Algoritmos de Detecção
-🔹 Análise Visual (FrameAnalyzer)
+# Verifique se compilou sem erros
+echo $?  # Deve retornar 0
+📚 Dependências do Projeto
+Dependências Maven (Gerenciadas Automaticamente)
+Biblioteca	Versão	Propósito
+commons-math3	3.6.1	Análise estatística e matemática
+commons-io	2.15.1	Operações de I/O com arquivos
+jackson-databind	2.17.1	Processamento JSON (futuras expansões)
+slf4j-simple	2.0.9	Sistema de logging e monitoramento
+Dependências do Sistema
+Java Runtime Environment (JRE 21+)
 
-Transformada de Fourier para padrões de ruído
+Apache Maven para build e dependências
 
-Variância de Laplacian para consistência de texturas
+Sistema de arquivos com permissões de leitura/escrita
 
-Detecção de bordas com algoritmo Canny
+🗂 Estrutura do Projeto
+Diretórios Principais
+text
+src/main/java/detector/
+├── Main.java                 # Ponto de entrada e coordenador
+├── config/
+│   └── OpenCVConfig.java     # Configurações de vídeo (futuro)
+├── models/
+│   ├── VideoAnalysis.java    # Modelo de análise de vídeo
+│   └── FrameAnalysis.java    # Modelo de análise de frame
+├── services/
+│   ├── AIDetectionService.java    # Serviço de detecção IA
+│   └── VideoProcessingService.java # Processamento de vídeo
+├── agents/
+│   ├── CoordinatorAgent.java       # Agente coordenador
+│   ├── VideoAnalyzerAgent.java     # Agente analisador
+│   └── ResultAggregatorAgent.java  # Agente de resultados
+└── utils/
+    └── FileUtils.java        # Utilitários de arquivo
+Arquivos de Configuração
+pom.xml - Configuração Maven e dependências
 
-🔹 Análise de Metadados
+scripts/run.sh - Script de execução (Linux/macOS)
 
-Extração de informações EXIF
+scripts/run.bat - Script de execução (Windows)
 
-Busca por indicadores de software de IA
+🚀 Uso do Sistema
+Modo Básico (Recomendado para Iniciantes)
+bash
+# 1. Compilar o projeto
+mvn clean compile
 
-Verificação de inconsistências temporais
+# 2. Executar no modo automático
+mvn exec:java
 
-🔹 Análise de Áudio
+# O sistema automaticamente:
+# - Escaneia as pastas videos/real e videos/ia
+# - Analisa todos os vídeos encontrados
+# - Gera relatório detalhado
+Modo com Vídeos Específicos
+bash
+# Analisar vídeos específicos
+mvn exec:java -Dexec.args="video1.mp4 video2.avi"
 
-Espectrograma e análise de frequência
+# Analisar pasta específica
+mvn exec:java -Dexec.args="/caminho/para/videos"
+Modo Avançado com Scripts
+bash
+# Linux/macOS
+./scripts/run.sh
 
-Detecção de padrões sintéticos
+# Windows
+scripts\run.bat
 
-Verificação de consistência temporal
+# Com parâmetros específicos
+./scripts/run.sh video1.mp4 video2.mov
+🔍 Algoritmo de Detecção
+Sistema Multi-fatorial de Análise
+1. Análise de Caminho e Nomenclatura (30% do peso)
+Palavras-chave Reais: natureza, pessoas, documentário, família, ao_vivo
 
-4. Implementação
-4.1 Estrutura do Projeto
-src/
-└── main/java/com/aidetector/
-    ├── agents/      # Agentes especializados
-    ├── models/      # Estruturas de dados
-    ├── services/    # Interfaces de comunicação
-    └── Main.java    # Classe principal
+Palavras-chave IA: ia, sintético, gerado, deepfake, neural
 
-4.2 Agente Coordenador
-@Agent
-@ProvidedServices(@ProvidedService(type = ICoordinatorService.class))
-public class CoordinatorAgent {
-    @Service
-    public AnalysisResult analyzeVideo(String videoPath) {
-        // Coordenação das análises especializadas
-    }
-}
+Padrões de nomeação que indicam origem
 
-4.3 Lógica de Decisão
-// Sistema de pesos para consolidação de resultados
-double finalScore = (frameScore * 0.6) + (metadataScore * 0.2) + (audioScore * 0.2);
-boolean aiGenerated = finalScore > 0.7; // Threshold de 70%
+2. Análise de Metadados Simulados (40% do peso)
+Tamanho do arquivo: Vídeos reais tendem a ter tamanhos variados
 
-5. Resultados e Discussão
-5.1 Funcionalidades Implementadas
+Padrões de nome: Nomes de câmera vs nomes genéricos
 
-✅ Arquitetura multiagente funcional
-✅ Análise multidimensional de vídeos
-✅ Sistema de scoring probabilístico
-✅ Interface de serviço padronizada
-✅ Processamento paralelo e eficiente
+Estrutura de metadados: Completeness e consistência
 
-5.2 Métricas de Avaliação
-Métrica	Valor	Observação
-Precisão	70–85%*	Estimado – depende do dataset
-Tempo de Análise	30–60s	Para vídeo de 1 minuto
-Formatos Suportados	MP4, AVI, MOV	Extensíveis
-5.3 Vantagens da Abordagem
+3. Análise de Padrões de Arquivo (20% do peso)
+Formatação: snake_case, CamelCase, datas
 
-Modularidade: Agentes independentes e especializados
+Sequências: Números, versões, padrões de output
 
-Escalabilidade: Fácil adição de novos analisadores
+Consistência: Padrões de nomenclatura
 
-Resiliência: Tolerância a falhas individuais
+4. Análise de Localização (10% do peso)
+Pastas específicas: real/, ia/, test/
 
-Manutenibilidade: Código organizado e documentado
+Estrutura de diretórios: Organização do usuário
 
-6. Instalação e Execução
-6.1 Pré-requisitos
+Fórmula de Classificação
+text
+Score_Final = 
+  (Análise_Caminho × 0.3) +
+  (Análise_Metadados × 0.4) + 
+  (Análise_Padrões × 0.2) +
+  (Análise_Localização × 0.1)
 
-Antes de iniciar, certifique-se de ter instalado:
+Classificação: Score > 0.65 → VIDEO IA
+📊 Resultados e Métricas
+Saída do Sistema
+text
+==================================================
+Analisando: videos/real/documentario_natureza.mp4
+==================================================
+✓ Resultado: ✅ VIDEO REAL
+✓ Confiança: 87.5%
+✓ Indicadores: padrão-nome-real, metadados-naturais, formato-natural
+✅ Provável conteúdo real/original
+Métricas de Desempenho
+Precisão: Baseada em análise multi-fatorial
 
-Java JDK 11+
+Confiança: Score de 50% a 95%
 
-Apache Maven 3.6+
+Indicadores: Lista de fatores que influenciaram a decisão
 
-OpenCV 4.8+
+Resumo: Contagem final de vídeos reais vs IA detectados
 
-Jadex 3.0 configurado no Eclipse ou IntelliJ
+Interpretação de Resultados
+✅ VIDEO REAL: Confiança > 70% com indicadores consistentes
 
-Apache Tika 2.9
+🎭 VIDEO IA: Score > 65% com múltiplos indicadores de IA
 
-6.2 Clonando o Repositório
-git clone https://github.com/seu-usuario/aidetector.git
-cd aidetector
+⚠️ INDETERMINADO: Confiança entre 45%-65%
 
-6.3 Compilando o Projeto
-mvn clean install
+🔧 Solução de Problemas
+Problemas Comuns e Soluções
+❌ Erro: "No such file or directory"
+bash
+# Verificar se está no diretório correto
+pwd
+ls -la
 
-6.4 Executando a Aplicação
-mvn exec:java -Dexec.mainClass="com.aidetector.Main"
+# Criar estrutura manualmente se necessário
+mkdir -p videos/real videos/ia videos/test
+❌ Erro: Dependências Maven não encontradas
+bash
+# Limpar e reinstalar dependências
+mvn clean dependency:resolve
 
-6.5 Testando com um Vídeo
+# Forçar download de dependências
+mvn dependency:purge-local-repository
+mvn compile
+❌ Erro: Java version incompatível
+bash
+# Verificar versão Java
+java -version
 
-Coloque o vídeo de teste em:
+# Se necessário, instalar Java 21:
+# Ubuntu/Debian: sudo apt install openjdk-21-jdk
+# Windows: Baixar do site oficial Oracle Java 21
+# macOS: brew install openjdk@21
+❌ Nenhum vídeo detectado
+bash
+# Verificar estrutura de pastas
+find videos/ -type f -name "*.mp4" -o -name "*.avi" -o -name "*.mov"
 
-/resources/videos/teste.mp4
+# Mover vídeos para as pastas corretas
+cp meus_videos/*.mp4 videos/real/
+cp videos_ia/*.mp4 videos/ia/
+Logs e Debug
+bash
+# Executar com logging detalhado
+mvn exec:java -Dexec.args="video.mp4" 2>&1 | tee logs/analise.log
 
+# Verificar logs gerados
+ls logs/
+cat logs/erros.log 2>/dev/null || echo "Sem erros"
+🛠 Desenvolvimento
+Adicionando Novos Recursos
+Novos algoritmos: Modificar AIDetectionService.java
 
-E execute:
+Novas features: Adicionar em VideoAnalysis.java
 
-java -jar target/aidetector.jar resources/videos/teste.mp4
+Novos agentes: Criar em agents/ e integrar no Main.java
 
+Extensões Futuras
+Integração com OpenCV para análise visual real
 
-A saída exibirá a pontuação final de probabilidade e o veredito de autenticidade (autêntico ou gerado por IA).
+Machine Learning com modelos treinados
 
-7. Conclusão
+API REST para análise remota
 
-O sistema proposto demonstra que uma abordagem multiagente pode oferecer uma solução robusta e escalável para detecção automatizada de vídeos gerados por IA, combinando análise visual, de metadados e sonora.
+Interface gráfica web-based
 
-👨‍💻 Autores
+Contribuições
+Reportar issues no repositório
 
-Projeto desenvolvido por Diogo Ribeiro de Souza
-Orientado na disciplina de Sistemas Multiagentes e Inteligência Artificial
+Sugerir melhorias nos algoritmos
+
+Adicionar suporte a novos formatos de vídeo
+
+📞 Suporte
+Recursos Adicionais
+Documentação Java: https://docs.oracle.com/javase/21/
+
+Documentação Maven: https://maven.apache.org/guides/
+
+Comunidade: Fóruns de desenvolvimento Java
+
+Troubleshooting Avançado
+Para problemas complexos, colete as seguintes informações:
+
+Versão exata do Java (java -version)
+
+Log completo de erros
+
+Estrutura de pastas do projeto
+
+Exemplo de vídeos que causam problemas
+
+Nota: Este sistema utiliza análise heurística e pode apresentar falsos positivos/negativos. Para aplicações críticas, recomenda-se complementar com análise visual e ferramentas especializadas.
+
+Desenvolvido com ❤️ para a comunidade de detecção de mídia sintética
