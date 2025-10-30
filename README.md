@@ -1,3 +1,9 @@
+
+aqui está o vídeo que demonstra que o projeto funciona,caso tenha algum problema só entrar em contato
+
+https://github.com/user-attachments/assets/7d7c1ee6-d377-428e-99bd-b73ad39cebfd
+
+
 🎬 Detector de Vídeos IA vs Reais
 
 🎯 Visão Geral
