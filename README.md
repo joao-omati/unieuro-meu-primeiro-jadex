@@ -299,3 +299,6 @@ Exemplo de vídeos que causam problemas
 Nota: Este sistema utiliza análise heurística e pode apresentar falsos positivos/negativos. Para aplicações críticas, recomenda-se complementar com análise visual e ferramentas especializadas.
 
 Desenvolvido com ❤️ para a comunidade de detecção de mídia sintética
+[trabalho de agentes jadex (3).pdf](https://github.com/user-attachments/files/23232399/trabalho.de.agentes.jadex.3.pdf)
+
+
